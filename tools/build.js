@@ -1,15 +1,26 @@
-import webpack from 'webpack';
-import runTool from '../src/runTool.js';
+import { runTool } from '../src/toolz.js';
 import clean from './clean';
-import webpackConfig from './webpack.config';
+import gulp from 'gulp';
+import gulpLoadPlugins from 'gulp-load-plugins';
+
+const $ = gulpLoadPlugins();
 
 export default async function build() {
   await runTool(clean);
   return new Promise((resolve, reject) => {
-    webpack(webpackConfig).run((err, stats) => {
-      if (err) return reject(err);
-      console.log(stats.toString(webpackConfig.stats));
-      return resolve();
-    });
+    gulp.src(['./src/toolz.js'])
+      // .pipe($.eslint())
+      // .pipe($.eslint.format())
+      // .pipe($.eslint.failAfterError())
+      .pipe($.babel({
+        presets: [
+          ['es2015', { modules: false }],
+          'stage-2',
+          'node5'
+        ],
+        plugins: ['babel-plugin-transform-async-to-generator']
+      }))
+      .pipe(gulp.dest('./dist/'))
+      .on('end', resolve).on('error', reject);
   });
 }

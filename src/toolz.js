@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import moment from 'moment';
 import chalk from 'chalk';
 import murmur from 'murmurhash3js';
@@ -61,7 +60,7 @@ if (require.main === module) {
   let command = args[args.length - 2];
   if (command.substr(command.length - 5) === 'toolz'
       || command.substr(command.length - 8) === 'toolz.js') {
-    const task = eval('require')(path.resolve(`${projectPath()}/tools`, args[args.length - 1]));
+    const task = require(path.resolve(`${projectPath()}/tools`, args[args.length - 1]));
     runTool(task).catch((err) => {
       console.error(err);
       process.exit(1);
@@ -73,12 +72,11 @@ if (require.main === module) {
 }
 
 function projectPath() {
-  const _require = eval('require');
   let projectPath = '';
-  let possiblePaths = _.remove(_require.main.paths, (path) => {
+  let possiblePaths = _.remove(require.main.paths, (path) => {
     return fs.existsSync(path);
   });
-  _.each(_require.main.filename.substr(1, _require.main.filename.length - 1).split('/'), (segment, i) => {
+  _.each(require.main.filename.substr(1, require.main.filename.length - 1).split('/'), (segment, i) => {
     possiblePaths = _.remove(possiblePaths, (path) => {
       return path.substr(1, path.length - 1).split('/')[i] === segment;
     });
@@ -87,6 +85,5 @@ function projectPath() {
       return;
     }
   });
-  console.log(projectPath);
   return projectPath;
 }
