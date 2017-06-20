@@ -57,7 +57,7 @@ if (require.main === module) {
   const args = _.filter(process.argv, (arg) => {
     return arg[0] !== '-';
   });
-  let command = args[args.length - 2];
+  let command = args[args.length - 3];
   if (command.substr(command.length - 5) === 'toolz'
       || command.substr(command.length - 8) === 'toolz.js') {
     const task = require(path.resolve(`${projectPath()}/tools`, args[args.length - 1]));

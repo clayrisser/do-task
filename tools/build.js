@@ -20,6 +20,7 @@ export default async function build() {
         ],
         plugins: ['babel-plugin-transform-async-to-generator']
       }))
+      .pipe($.uglify().on('error', reject))
       .pipe(gulp.dest('./dist/'))
       .on('end', resolve).on('error', reject);
   });

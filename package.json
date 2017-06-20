@@ -4,7 +4,7 @@
   "description": "A task runner for node",
   "main": "./dist/toolz.js",
   "repository": "https://jamrizzi.com",
-  "author": "jamrizzi",
+  "author": "Jam Risser <jam@jamrizzi.com> (https://jam.jamrizzi.com)",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
@@ -23,13 +23,15 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-clean": "^0.3.2",
-    "gulp-load-plugins": "^1.5.0"
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-uglify": "^3.0.0"
   },
   "scripts": {
-    "start": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js start",
-    "build": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js build",
-    "clean": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js clean",
-    "test": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js test"
+    "start": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run start",
+    "build": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run build",
+    "clean": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run clean",
+    "test": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run test",
+    "publish": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run publish"
   },
   "babel": {
     "presets": [
