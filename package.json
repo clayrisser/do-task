@@ -1,6 +1,6 @@
 {
   "name": "toolz-cli",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Universal build tools for NodeJS",
   "main": "./dist/toolz.js",
   "repository": "https://jamrizzi.com",
