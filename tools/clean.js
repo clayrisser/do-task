@@ -33,7 +33,7 @@ export default async function clean() {
       return (line.length > 0 && line[0] !== '#' && !_.includes(ignore, line));
     });
   });
-  return new Promise((resolve, reject) => {
+  await new Promise((resolve, reject) => {
     gulp.src(files, { read: false })
       .pipe($.clean()).on('finish', resolve);
   });

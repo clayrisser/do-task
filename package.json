@@ -1,6 +1,6 @@
 {
-  "name": "run-task",
-  "version": "0.0.1",
+  "name": "toolz-cli",
+  "version": "0.0.13",
   "description": "A task runner for node",
   "main": "./dist/toolz.js",
   "repository": "https://jamrizzi.com",
@@ -22,6 +22,7 @@
     "fs-extra-promise": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-bump": "^2.7.0",
     "gulp-clean": "^0.3.2",
     "gulp-load-plugins": "^1.5.0",
     "gulp-uglify": "^3.0.0"
@@ -31,7 +32,8 @@
     "build": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run build",
     "clean": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run clean",
     "test": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run test",
-    "publish": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run publish"
+    "prepublishOnly": "node ./node_modules/babel-cli/bin/babel-node ./src/toolz.js run publish",
+    "publish": "rm -rf ./index.js"
   },
   "babel": {
     "presets": [

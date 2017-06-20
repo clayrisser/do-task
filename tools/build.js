@@ -1,7 +1,7 @@
-import { runTool } from '../src/toolz.js';
 import clean from './clean';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
+import { runTool } from '../src/toolz';
 
 const $ = gulpLoadPlugins();
 

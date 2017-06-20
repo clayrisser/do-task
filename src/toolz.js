@@ -49,7 +49,8 @@ function finished(task, startTime, finishTime, options) {
 
 function getTaskColor(task, bg = false) {
   let hash = murmur.x86.hash32(task.name);
-  if (bg) return bgColors[hash % bgColors.length];
+  hash = parseInt(hash / 6);
+  if (bg) return bgColors[(hash - 3) % bgColors.length];
   return colors[hash % colors.length];
 }
 
