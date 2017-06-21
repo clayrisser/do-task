@@ -4,6 +4,7 @@ import murmur from 'murmurhash3js';
 import path from 'path';
 import _ from 'lodash';
 import fs from 'fs-extra-promise';
+import projPath from 'proj-path';
 
 const settings = {
   dateFormat: 'hh:mm:ss.sss',
@@ -61,7 +62,7 @@ if (require.main === module) {
   let command = args[args.length - 3];
   if (command.substr(command.length - 9) === 'toolz-cli'
       || command.substr(command.length - 12) === 'toolz-cli.js') {
-    const task = require(path.resolve(`${projectPath()}/tools`, args[args.length - 1]));
+    const task = require(path.resolve(`${projPath()}/tools`, args[args.length - 1]));
     runTool(task).catch((err) => {
       console.error(err);
       process.exit(1);
@@ -70,23 +71,4 @@ if (require.main === module) {
     console.error('Please provide a valid task');
     process.exit(1);
   }
-}
-
-function projectPath() {
-  let projectPath = '';
-  let possiblePaths = _.remove(require.main.paths, (path) => {
-    const matches = path.match(/node_modules/g) || [];
-    if (matches.length > 1) return false;
-    return fs.existsSync(path);
-  });
-  _.each(require.main.filename.substr(1, require.main.filename.length - 1).split('/'), (segment, i) => {
-    possiblePaths = _.remove(possiblePaths, (path) => {
-      return path.substr(1, path.length - 1).split('/')[i] === segment;
-    });
-    if (possiblePaths.length === 1) {
-      projectPath = possiblePaths[0].substr(0, possiblePaths[0].indexOf('/node_modules'));
-      return;
-    }
-  });
-  return projectPath;
 }
