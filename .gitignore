@@ -63,4 +63,5 @@ typings/
 *~
 
 # Application
-dist/
+index.js
+bin/

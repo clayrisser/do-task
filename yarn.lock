@@ -740,6 +740,14 @@ balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
 
+barbe@^3.0.4:
+  version "3.0.10"
+  resolved "https://registry.yarnpkg.com/barbe/-/barbe-3.0.10.tgz#059ec7139d4d20c814bb030a4ae7a49ae57fa61d"
+  dependencies:
+    iterate-object "^1.3.2"
+    regex-escape "^3.0.0"
+    typpy "^2.3.1"
+
 bcrypt-pbkdf@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
@@ -989,6 +997,14 @@ end-of-stream@~0.1.5:
   dependencies:
     once "~1.3.0"
 
+err@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/err/-/err-2.1.7.tgz#9c567d35396a82632d42f53eb082491871919e18"
+  dependencies:
+    barbe "^3.0.4"
+    iterate-object "^1.3.1"
+    typpy "^2.2.0"
+
 error-ex@^1.2.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/error-ex/-/error-ex-1.3.1.tgz#f855a86ce61adc4e8621c3cda21e7a7612c3a8dc"
@@ -1184,6 +1200,12 @@ fstream@^1.0.0, fstream@^1.0.10, fstream@^1.0.2:
     mkdirp ">=0.5 0"
     rimraf "2"
 
+function.name@^1.0.3:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/function.name/-/function.name-1.0.8.tgz#d11c12e4a7dfa7de7c71d9c504567083bb6be05b"
+  dependencies:
+    noop6 "^1.0.1"
+
 gauge@~2.7.3:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
@@ -1369,6 +1391,10 @@ gulp-load-plugins@^1.5.0:
     has-gulplog "^0.1.0"
     micromatch "^2.3.8"
     resolve "^1.1.7"
+
+gulp-rename@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/gulp-rename/-/gulp-rename-1.2.2.tgz#3ad4428763f05e2764dec1c67d868db275687817"
 
 gulp-uglify@^3.0.0:
   version "3.0.0"
@@ -1686,6 +1712,10 @@ isobject@^3.0.0:
 isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
+
+iterate-object@^1.3.1, iterate-object@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/iterate-object/-/iterate-object-1.3.2.tgz#24ec15affa5d0039e8839695a21c2cae1f45b66b"
 
 js-tokens@^3.0.0:
   version "3.0.1"
@@ -2131,6 +2161,10 @@ node-pre-gyp@^0.6.36:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
+noop6@^1.0.1:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/noop6/-/noop6-1.0.6.tgz#eb2b6b5ee1248a02838ee0cea12e8dd5caaf849b"
+
 nopt@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/nopt/-/nopt-4.0.1.tgz#d0d4685afd5415193c8c7505602d0d17cd64474d"
@@ -2365,9 +2399,9 @@ process-nextick-args@~1.0.6:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-1.0.7.tgz#150e20b756590ad3f91093f25a4f2ad8bff30ba3"
 
-proj-path@^0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/proj-path/-/proj-path-0.0.1.tgz#4bfbf7553ac4a004386ad5d31c2cdc3f3a0ee2d4"
+proj-path@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/proj-path/-/proj-path-0.0.3.tgz#4a6e867a56dbc6bfaef62f9221c386e1681a6de6"
   dependencies:
     fs-extra-promise "^1.0.1"
     lodash "^4.17.4"
@@ -2485,6 +2519,10 @@ regex-cache@^0.4.2:
   dependencies:
     is-equal-shallow "^0.1.3"
     is-primitive "^2.0.0"
+
+regex-escape@^3.0.0:
+  version "3.4.6"
+  resolved "https://registry.yarnpkg.com/regex-escape/-/regex-escape-3.4.6.tgz#5a393a9fca2a293f60927611ba2f9122002a511b"
 
 regexpu-core@^2.0.0:
   version "2.0.0"
@@ -2811,6 +2849,12 @@ tunnel-agent@^0.6.0:
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"
   resolved "https://registry.yarnpkg.com/tweetnacl/-/tweetnacl-0.14.5.tgz#5ae68177f192d4456269d108afa93ff8743f4f64"
+
+typpy@^2.2.0, typpy@^2.3.1:
+  version "2.3.8"
+  resolved "https://registry.yarnpkg.com/typpy/-/typpy-2.3.8.tgz#5dfc0a1e9b9e4f9287ef8fa94dce8aa18103e581"
+  dependencies:
+    function.name "^1.0.3"
 
 uglify-js@^3.0.5:
   version "3.0.18"

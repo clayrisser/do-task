@@ -1,10 +1,10 @@
-import moment from 'moment';
+import 'babel-polyfill';
+import _ from 'lodash';
 import chalk from 'chalk';
+import fs from 'fs-extra-promise';
+import moment from 'moment';
 import murmur from 'murmurhash3js';
 import path from 'path';
-import _ from 'lodash';
-import fs from 'fs-extra-promise';
-import projPath from 'proj-path';
 
 const settings = {
   dateFormat: 'hh:mm:ss.sss',
@@ -19,7 +19,7 @@ const bgColors = [
   'bgCyan'
 ];
 
-export const runTool = (task, options) => {
+export const run = (task, options) => {
   const startTime = moment();
   if (typeof task.default !== 'undefined') task = task.default;
   started(task, startTime, options);
@@ -53,22 +53,4 @@ function getTaskColor(task, bg = false) {
   hash = parseInt(hash / 6);
   if (bg) return bgColors[(hash - 3) % bgColors.length];
   return colors[hash % colors.length];
-}
-
-if (require.main === module) {
-  const args = _.filter(process.argv, (arg) => {
-    return arg[0] !== '-';
-  });
-  let command = args[args.length - 3];
-  if (command.substr(command.length - 9) === 'toolz-cli'
-      || command.substr(command.length - 12) === 'toolz-cli.js') {
-    const task = require(path.resolve(`${projPath()}/tools`, args[args.length - 1]));
-    runTool(task).catch((err) => {
-      console.error(err);
-      process.exit(1);
-    });
-  } else {
-    console.error('Please provide a valid task');
-    process.exit(1);
-  }
 }

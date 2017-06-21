@@ -1,4 +1,4 @@
-# toolz-cli
+# do-task
 
 Universal build tools for NodeJS
 
@@ -13,7 +13,7 @@ Please &#9733; this repo if you found it useful &#9733; &#9733; &#9733;
 ## Installation
 
 ```sh
-npm install --save toolz-cli
+npm install --save do-task
 ```
 
 
@@ -25,18 +25,27 @@ npm install --save toolz-cli
 
 ## Usage
 
-```js
-import { runTool } from 'toolz-cli';
-```
+* JavaScript
 
-```sh
-node ./node_modules/babel-cli/bin/babel-node ./node_modules/toolz-cli/index run mytool
-```
+    ```js
+    import myTask from './my-task';
+    import { run } from 'do-task';
+    
+    run(myTask).then(() => {
+        console.log('Yay, myTask finished');
+    });
+    ```
+    
+* Command Line
+
+    ```sh
+    node ./node_modules/do-task/bin/do-task run my-task
+    ```
 
 
 ## Support
 
-Submit an [issue](https://github.com/jamrizzi/toolz-cli/issues/new)
+Submit an [issue](https://github.com/jamrizzi/do-task/issues/new)
 
 
 ## Buy Me Coffee
@@ -57,7 +66,7 @@ A ridiculous amount of coffee was consumed in the process of building this proje
 
 ## License
 
-[MIT License](https://github.com/jamrizzi/toolz-cli/blob/master/LICENSE)
+[MIT License](https://github.com/jamrizzi/do-task/blob/master/LICENSE)
 
 [Jam Risser](https://jamrizzi.com) &copy; 2017
 
