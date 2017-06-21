@@ -1,7 +1,7 @@
-import pause from 'pause-async';
+import delay from 'delay';
 
 export default async function start() {
-  await pause(1000);
+  await delay(1000);
   console.log('Hello, world!');
-  await pause(1000);
+  await delay(1000);
 }
