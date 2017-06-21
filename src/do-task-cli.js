@@ -4,6 +4,8 @@ import _ from 'lodash';
 import path from 'path';
 import projPath from 'proj-path';
 import fs from 'fs-extra-promise';
+import { doTask as options } from '../package.json';
+import safe from 'safe-access';
 
 let run = () => {};
 if (fs.existsSync('./do-task.js')) {
@@ -13,6 +15,7 @@ if (fs.existsSync('./do-task.js')) {
 }
 
 const main = async () => {
+  const location = safe(options, 'location') || './tasks';
   const args = minimist(process.argv);
   let progIndex = _.findIndex(args._, arg => arg === module.filename);
   if (progIndex < 0) {
@@ -32,7 +35,7 @@ const main = async () => {
     if (args.sync) {
       const promises = [];
       _.each(taskNames, (taskName) => {
-        const task = require(path.resolve(`${projPath()}/tools`, taskName));
+        const task = require(path.resolve(projPath(), location, taskName));
         promises.push(run.bind(this, task));
       });
       let promiseChain = Promise.resolve();
@@ -42,7 +45,7 @@ const main = async () => {
       return promiseChain;
     } else {
       const promises = _.map(taskNames, (taskName) => {
-        const task = require(path.resolve(`${projPath()}/tools`, taskName));
+        const task = require(path.resolve(projPath(), location, taskName));
         return run(task);
       });
       return Promise.all(promises);

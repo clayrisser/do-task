@@ -1,6 +1,6 @@
 {
   "name": "do-task",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Minimal task runner for NodeJS",
   "main": "index.js",
   "repository": "https://jamrizzi.com",
@@ -14,7 +14,8 @@
     "minimist": "^1.2.0",
     "moment": "^2.18.1",
     "murmurhash3js": "^3.0.1",
-    "proj-path": "^0.0.3"
+    "proj-path": "^0.0.3",
+    "safe-access": "^0.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
