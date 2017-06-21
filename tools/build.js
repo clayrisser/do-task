@@ -1,14 +1,14 @@
 import clean from './clean';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import { runTool } from '../src/toolz';
+import { runTool } from '../src/toolz-cli';
 
 const $ = gulpLoadPlugins();
 
 export default async function build() {
   await runTool(clean);
   return new Promise((resolve, reject) => {
-    gulp.src(['./src/toolz.js'])
+    gulp.src(['./src/toolz-cli.js'])
       // .pipe($.eslint())
       // .pipe($.eslint.format())
       // .pipe($.eslint.failAfterError())

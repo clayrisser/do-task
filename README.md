@@ -1,4 +1,4 @@
-# toolz
+# toolz-cli
 
 Universal build tools for NodeJS
 

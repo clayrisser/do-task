@@ -63,8 +63,8 @@ typings/
 *~
 
 # Application
-dist/
 src/
 tools/
 .eslintrc
 yarn.lock
+.editorconfig

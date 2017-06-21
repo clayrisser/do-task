@@ -59,10 +59,8 @@ if (require.main === module) {
     return arg[0] !== '-';
   });
   let command = args[args.length - 3];
-  if (command.substr(command.length - 5) === 'toolz'
-      || command.substr(command.length - 8) === 'toolz.js'
-      || command.substr(command.length - 5) === 'index'
-      || command.substr(command.length - 8) === 'index.js') {
+  if (command.substr(command.length - 9) === 'toolz-cli'
+      || command.substr(command.length - 12) === 'toolz-cli.js') {
     const task = require(path.resolve(`${projectPath()}/tools`, args[args.length - 1]));
     runTool(task).catch((err) => {
       console.error(err);
