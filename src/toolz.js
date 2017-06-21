@@ -60,7 +60,9 @@ if (require.main === module) {
   });
   let command = args[args.length - 3];
   if (command.substr(command.length - 5) === 'toolz'
-      || command.substr(command.length - 8) === 'toolz.js') {
+      || command.substr(command.length - 8) === 'toolz.js'
+      || command.substr(command.length - 5) === 'index'
+      || command.substr(command.length - 8) === 'index.js') {
     const task = require(path.resolve(`${projectPath()}/tools`, args[args.length - 1]));
     runTool(task).catch((err) => {
       console.error(err);
@@ -75,6 +77,8 @@ if (require.main === module) {
 function projectPath() {
   let projectPath = '';
   let possiblePaths = _.remove(require.main.paths, (path) => {
+    const matches = path.match(/node_modules/g) || [];
+    if (matches.length > 1) return false;
     return fs.existsSync(path);
   });
   _.each(require.main.filename.substr(1, require.main.filename.length - 1).split('/'), (segment, i) => {
