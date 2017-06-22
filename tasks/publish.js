@@ -1,4 +1,3 @@
-import childProcess from 'child_process';
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 

@@ -1,6 +1,6 @@
 {
   "name": "do-task",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Minimal task runner for NodeJS",
   "main": "index.js",
   "repository": "https://jamrizzi.com",
